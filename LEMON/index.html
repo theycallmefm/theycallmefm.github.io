@@ -1,267 +1,279 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <meta name="description" content="Deformable Neural Radiance Fields creates free-viewpoint portraits (nerfies) from casually captured videos.">
-  <meta name="keywords" content="Nerfies, D-NeRF, NeRF">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>LEMON: Localized Editing with Mesh Optimization and Neural Shaders</title>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="description" content="Deformable Neural Radiance Fields creates free-viewpoint portraits (nerfies) from casually captured videos." />
+    <meta name="keywords" content="Nerfies, D-NeRF, NeRF" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>LEMON: Localized Editing with Mesh Optimization and Neural Shaders</title>
 
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-    gtag('js', new Date());
-    gtag('config', 'G-PYVRSFMDRL');
-  </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-PYVRSFMDRL");
+    </script>
 
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
-  <link rel="stylesheet" href="./static/css/bulma.min.css">
-  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
-  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
-  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-  <link rel="stylesheet" href="./static/css/index.css">
-  <link rel="icon" href="./static/images/favicon.svg">
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet" />
+    <link rel="stylesheet" href="./static/css/bulma.min.css" />
+    <link rel="stylesheet" href="./static/css/bulma-carousel.min.css" />
+    <link rel="stylesheet" href="./static/css/bulma-slider.min.css" />
+    <link rel="stylesheet" href="./static/css/fontawesome.all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" />
+    <link rel="stylesheet" href="./static/css/index.css" />
+    <link rel="icon" href="./static/images/favicon.svg" />
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script defer src="./static/js/fontawesome.all.min.js"></script>
-  <script src="./static/js/bulma-carousel.min.js"></script>
-  <script src="./static/js/bulma-slider.min.js"></script>
-  <script src="./static/js/index.js"></script>
-</head>
-<body>
-  <section class="hero">
-    <div class="hero-body">
-      <div class="container is-max-desktop">
-        <div class="columns is-centered">
-          <div class="column has-text-centered">
-            <h1 class="title is-1 publication-title">LEMON: Localized Editing with Mesh Optimization and Neural Shaders</h1>
-            <div class="is-size-5 publication-authors">
-              <span class="author-block">
-                <a href="https://theycallmefm.github.io">Furkan Mert Algan</a>,
-              </span>
-              <span class="author-block">
-                <a href="https://github.com/umutyazgan/">Umut Yazgan</a>,
-              </span>
-              <span class="author-block">
-                <a href="https://www.ce.cit.tum.de/en/lmt/team/staff/salihu-driton/">Driton Salihu</a>,
-              </span>
-              <span class="author-block">
-                <a href="https://www.ce.cit.tum.de/en/lmt/team/staff/eteke-cem/">Cem Eteke</a>,
-              </span>
-              <span class="author-block">
-                <a href="https://www.ce.cit.tum.de/en/lmt/team/staff/steinbach-eckehard/">Eckehard Steinbach</a>
-              </span>
-            </div>
-
-            <div class="is-size-5 publication-authors">
-              <span class="author-block">Technical University of Munich</span>
-            </div>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="./static/js/fontawesome.all.min.js"></script>
+    <script src="./static/js/bulma-carousel.min.js"></script>
+    <script src="./static/js/bulma-slider.min.js"></script>
+    <script src="./static/js/index.js"></script>
+  </head>
+  <body>
+    <section class="hero">
+      <div class="hero-body">
+        <div class="container is-max-desktop">
+          <div class="columns is-centered">
             <div class="column has-text-centered">
-              <div class="publication-links">
-                <span class="link-block">
-                  <a href="https://arxiv.org/abs/2409.12024" class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon">
-                      <i class="ai ai-arxiv"></i>
-                    </span>
-                    <span>arXiv</span>
-                  </a>
+              <h1 class="title is-1 publication-title">LEMON: Localized Editing with Mesh Optimization and Neural Shaders</h1>
+              <div class="is-size-5 publication-authors">
+                <span class="author-block"> <a href="https://theycallmefm.github.io">Furkan Mert Algan</a>, </span>
+                <span class="author-block"> <a href="https://github.com/umutyazgan/">Umut Yazgan</a>, </span>
+                <span class="author-block"> <a href="https://www.ce.cit.tum.de/en/lmt/team/staff/salihu-driton/">Driton Salihu</a>, </span>
+                <span class="author-block"> <a href="https://www.ce.cit.tum.de/en/lmt/team/staff/eteke-cem/">Cem Eteke</a>, </span>
+                <span class="author-block">
+                  <a href="https://www.ce.cit.tum.de/en/lmt/team/staff/steinbach-eckehard/">Eckehard Steinbach</a>
                 </span>
-                <span class="link-block">
-                  <a href="https://www.youtube.com/watch?v=jjoMEw2RYlA" class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon">
-                      <i class="fab fa-youtube"></i>
-                    </span>
-                    <span>Video</span>
-                  </a>
-                </span>
-                <span class="link-block">
-                  <a href="https://github.com/theycallmefm/" class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon">
-                      <i class="fab fa-github"></i>
-                    </span>
-                    <span>Code (Coming Soon!)</span>
-                  </a>
-                </span>
+              </div>
+
+              <div class="is-size-5 publication-authors">
+                <span class="author-block">Technical University of Munich</span>
+              </div>
+
+              <div class="column has-text-centered">
+                <div class="publication-links">
+                  <span class="link-block">
+                    <a href="https://arxiv.org/abs/2409.12024" class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                        <i class="ai ai-arxiv"></i>
+                      </span>
+                      <span>arXiv</span>
+                    </a>
+                  </span>
+                  <span class="link-block">
+                    <a href="https://www.youtube.com/watch?v=jjoMEw2RYlA" class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                        <i class="fab fa-youtube"></i>
+                      </span>
+                      <span>Video</span>
+                    </a>
+                  </span>
+                  <span class="link-block">
+                    <a href="https://github.com/theycallmefm/" class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                        <i class="fab fa-github"></i>
+                      </span>
+                      <span>Code (Coming Soon!)</span>
+                    </a>
+                  </span>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="hero teaser">
-    <div class="container is-max-desktop">
+    <section class="hero teaser">
+      <div class="container is-max-desktop">
+        <div class="hero-body">
+          <video id="teaser" autoplay muted loop playsinline height="100%">
+            <source src="./static/videos/skull-batman.mp4" type="video/mp4" />
+          </video>
+        </div>
+      </div>
+    </section>
+
+    <section class="hero is-light is-small">
       <div class="hero-body">
-        <video id="teaser" autoplay muted loop playsinline height="100%">
-          <source src="./static/videos/skull-batman.mp4" type="video/mp4">
-        </video>
-      </div>
-    </div>
-  </section>
-
-  <section class="hero is-light is-small">
-    <div class="hero-body">
-      <div class="container">
-        <div id="results-carousel" class="carousel results-carousel">
-          <div class="item">
-            <video id="steve" autoplay controls muted loop playsinline height="100%">
-              <source src="./static/videos/skull_batman.mkv" type="video/mp4">
-            </video>
-          </div>
-          <div class="item">
-            <video id="chair-tp" autoplay controls muted loop playsinline height="100%">
-              <source src="./static/videos/owl-drawer.mkv" type="video/mp4">
-            </video>
-          </div>
-          <div class="item">
-            <video id="shiba" autoplay controls muted loop playsinline height="100%">
-              <source src="./static/videos/owl-monkey.mkv" type="video/mp4">
-            </video>
-          </div>
-          <div class="item">
-            <video id="fullbody" autoplay controls muted loop playsinline height="100%">
-              <source src="./static/videos/redhouse-hogwarts.mkv" type="video/mp4">
-            </video>
-          </div>
-          <div class="item">
-            <video id="blueshirt" autoplay controls muted loop playsinline height="100%">
-              <source src="./static/videos/redhouse-brickroof.mkv" type="video/mp4">
-            </video>
-          </div>
-          <div class="item">
-            <video id="mask" autoplay controls muted loop playsinline height="100%">
-              <source src="./static/videos/skull.mkv" type="video/mp4">
-            </video>
-          </div>
-          <div class="item">
-            <video id="coffee" autoplay controls muted loop playsinline height="100%">
-              <source src="./static/videos/owl.mkv" type="video/mp4">
-            </video>
-          </div>
-          <div class="item">
-            <video id="toby" autoplay controls muted loop playsinline height="100%">
-              <source src="./static/videos/redhouse.mkv" type="video/mp4">
-            </video>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          <h2 class="title is-3">Abstract</h2>
-          <div class="content has-text-justified">
-            <p>
-              In practical use cases, polygonal mesh editing can be faster than generating new ones, but it can still be challenging and time-consuming for users. Existing solutions for this problem tend to focus on a single task, either geometry or novel view synthesis, which often leads to disjointed results between the mesh and view. In this work, we propose LEMON, a mesh editing pipeline that combines neural deferred shading with localized mesh optimization. Our approach begins by identifying the most important vertices in the mesh for editing, utilizing a segmentation model to focus on these key regions. Given multi-view images of an object, we optimize a neural shader and a polygonal mesh while extracting the normal map and the rendered image from each view. By using these outputs as conditioning data, we edit the input images with a text-to-image diffusion model and iteratively update our dataset while deforming the mesh. This process results in a polygonal mesh that is edited according to the given text instruction, preserving the geometric characteristics of the initial mesh while focusing on the most significant areas. We evaluate our pipeline using the DTU dataset, demonstrating that it generates finely-edited meshes more rapidly than the current state-of-the-art methods. We include our code and additional results in the supplementary material.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          <h2 class="title is-3">Video</h2>
-          <div class="publication-video">
-            <iframe src="https://www.youtube.com/embed/jjoMEw2RYlA?start=4&rel=0&showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered">
-        <div class="column">
-          <div class="content">
-            <h2 class="title is-3">Title</h2>
-            <p>To be filled</p>
-            <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
-              <source src="./static/videos/skull.mkv" type="video/mp4">
-            </video>
-          </div>
-        </div>
-
-        <div class="column">
-          <h2 class="title is-3">Title</h2>
-          <div class="columns is-centered">
-            <div class="column content">
-              <p>To be filled.</p>
-              <video id="matting-video" controls playsinline height="100%">
-                <source src="./static/videos/skull.mkv" type="video/mp4">
+        <div class="container">
+          <div id="results-carousel" class="carousel results-carousel">
+            <div class="item">
+              <video id="steve" autoplay controls muted loop playsinline height="100%">
+                <source src="./static/videos/skull_batman.mkv" type="video/mp4" />
+              </video>
+            </div>
+            <div class="item">
+              <video id="chair-tp" autoplay controls muted loop playsinline height="100%">
+                <source src="./static/videos/owl-drawer.mkv" type="video/mp4" />
+              </video>
+            </div>
+            <div class="item">
+              <video id="shiba" autoplay controls muted loop playsinline height="100%">
+                <source src="./static/videos/owl-monkey.mkv" type="video/mp4" />
+              </video>
+            </div>
+            <div class="item">
+              <video id="fullbody" autoplay controls muted loop playsinline height="100%">
+                <source src="./static/videos/redhouse-hogwarts.mkv" type="video/mp4" />
+              </video>
+            </div>
+            <div class="item">
+              <video id="blueshirt" autoplay controls muted loop playsinline height="100%">
+                <source src="./static/videos/redhouse-brickroof.mkv" type="video/mp4" />
+              </video>
+            </div>
+            <div class="item">
+              <video id="mask" autoplay controls muted loop playsinline height="100%">
+                <source src="./static/videos/skull.mkv" type="video/mp4" />
+              </video>
+            </div>
+            <div class="item">
+              <video id="coffee" autoplay controls muted loop playsinline height="100%">
+                <source src="./static/videos/owl.mkv" type="video/mp4" />
+              </video>
+            </div>
+            <div class="item">
+              <video id="toby" autoplay controls muted loop playsinline height="100%">
+                <source src="./static/videos/redhouse.mkv" type="video/mp4" />
               </video>
             </div>
           </div>
         </div>
       </div>
+    </section>
 
-      <h3 class="title is-4">View consistency</h3>
-      <div class="content has-text-justified">
-        <p>View consistency</p>
-      </div>
-      <div class="content has-text-centered">
-        <video id="replay-video" controls muted preload playsinline width="75%">
-          <source src="./static/videos/constency-monkey-changed.mp4" type="video/mp4">
-        </video>
-      </div>
+    <section class="section">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <h2 class="title is-3">Abstract</h2>
+            <div class="content has-text-justified">
+              <p>
+                In practical use cases, polygonal mesh editing can be faster than generating new ones, but it can still be challenging and
+                time-consuming for users. Existing solutions for this problem tend to focus on a single task, either geometry or novel view synthesis,
+                which often leads to disjointed results between the mesh and view. In this work, we propose LEMON, a mesh editing pipeline that
+                combines neural deferred shading with localized mesh optimization. Our approach begins by identifying the most important vertices in
+                the mesh for editing, utilizing a segmentation model to focus on these key regions. Given multi-view images of an object, we optimize
+                a neural shader and a polygonal mesh while extracting the normal map and the rendered image from each view. By using these outputs as
+                conditioning data, we edit the input images with a text-to-image diffusion model and iteratively update our dataset while deforming
+                the mesh. This process results in a polygonal mesh that is edited according to the given text instruction, preserving the geometric
+                characteristics of the initial mesh while focusing on the most significant areas. We evaluate our pipeline using the DTU dataset,
+                demonstrating that it generates finely-edited meshes more rapidly than the current state-of-the-art methods. We include our code and
+                additional results in the supplementary material.
+              </p>
+            </div>
+          </div>
+        </div>
 
-      <div class="columns is-centered">
-        <div class="column is-half">
-          <h2 class="title is-3">Related Links</h2>
-          <div class="content has-text-justified">
-            <p>To be filled</p>
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <h2 class="title is-3">Video</h2>
+            <div class="publication-video">
+              <iframe
+                src="https://www.youtube.com/embed/jjoMEw2RYlA?start=4&rel=0&showinfo=0"
+                frameborder="0"
+                allow="autoplay; encrypted-media"
+                allowfullscreen
+              ></iframe>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="section" id="BibTeX">
-    <div class="container is-max-desktop content">
-      <h2 class="title">BibTeX</h2>
-      <pre><code>@article{mert2024lemon,
+    <section class="section">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column">
+            <div class="content">
+              <h2 class="title is-3">Title</h2>
+              <p>To be filled</p>
+              <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
+                <source src="./static/videos/skull.mkv" type="video/mp4" />
+              </video>
+            </div>
+          </div>
+
+          <div class="column">
+            <h2 class="title is-3">Title</h2>
+            <div class="columns is-centered">
+              <div class="column content">
+                <p>To be filled.</p>
+                <video id="matting-video" controls playsinline height="100%">
+                  <source src="./static/videos/skull.mkv" type="video/mp4" />
+                </video>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h3 class="title is-4">View consistency</h3>
+        <div class="content has-text-justified">
+          <p>View consistency</p>
+        </div>
+        <div class="content has-text-centered">
+          <video id="replay-video" controls muted preload playsinline width="75%">
+            <source src="./static/videos/constency-monkey-changed.mp4" type="video/mp4" />
+          </video>
+        </div>
+
+        <div class="columns is-centered">
+          <div class="column is-half">
+            <h2 class="title is-3">Related Links</h2>
+            <div class="content has-text-justified">
+              <p>To be filled</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="BibTeX">
+      <div class="container is-max-desktop content">
+        <h2 class="title">BibTeX</h2>
+        <pre><code>@article{mert2024lemon,
   title={LEMON: Localized Editing with Mesh Optimization and Neural Shaders},
   author={Mert Algan, Furkan and Yazgan, Umut and Salihu, Driton and Eteke, Cem and Steinbach, Eckehard},
   journal={arXiv e-prints},
   pages={arXiv--2409},
   year={2024}
 }</code></pre>
-    </div>
-  </section>
-
-  <footer class="footer">
-    <div class="container">
-      <div class="content has-text-centered">
-        <a class="icon-link" href="./static/videos/submission.pdf">
-          <i class="fas fa-file-pdf"></i>
-        </a>
-        <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
-          <i class="fab fa-github"></i>
-        </a>
       </div>
-      <div class="columns is-centered">
-        <div class="column is-8">
-          <div class="content">
-            <p>
-              This website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
-            </p>
-            <p>
-              This means you are free to borrow the <a href="https://github.com/nerfies/nerfies.github.io">source code</a> of this website, we just ask that you link back to this page in the footer. Please remember to remove the analytics code included in the header of the website which you do not want on your website.
-            </p>
+    </section>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="content has-text-centered">
+          <a class="icon-link" href="./static/videos/submission.pdf">
+            <i class="fas fa-file-pdf"></i>
+          </a>
+          <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
+            <i class="fab fa-github"></i>
+          </a>
+        </div>
+        <div class="columns is-centered">
+          <div class="column is-8">
+            <div class="content">
+              <p>
+                This website is licensed under a
+                <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"
+                  >Creative Commons Attribution-ShareAlike 4.0 International License</a
+                >.
+              </p>
+              <p>
+                This means you are free to borrow the <a href="https://github.com/nerfies/nerfies.github.io">source code</a> of this website, we just
+                ask that you link back to this page in the footer. Please remember to remove the analytics code included in the header of the website
+                which you do not want on your website.
+              </p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </footer>
-</body>
+    </footer>
+  </body>
 </html>
