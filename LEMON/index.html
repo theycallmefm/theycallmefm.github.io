@@ -98,55 +98,6 @@
       </div>
     </section>
 
-    <section class="hero is-light is-small">
-      <div class="hero-body">
-        <div class="container">
-          <div id="results-carousel" class="carousel results-carousel">
-            <div class="item">
-              <video id="steve" autoplay controls muted loop playsinline height="100%">
-                <source src="./static/videos/skull_batman.mkv" type="video/mp4" />
-              </video>
-            </div>
-            <div class="item">
-              <video id="chair-tp" autoplay controls muted loop playsinline height="100%">
-                <source src="./static/videos/owl-drawer.mkv" type="video/mp4" />
-              </video>
-            </div>
-            <div class="item">
-              <video id="shiba" autoplay controls muted loop playsinline height="100%">
-                <source src="./static/videos/owl-monkey.mkv" type="video/mp4" />
-              </video>
-            </div>
-            <div class="item">
-              <video id="fullbody" autoplay controls muted loop playsinline height="100%">
-                <source src="./static/videos/redhouse-hogwarts.mkv" type="video/mp4" />
-              </video>
-            </div>
-            <div class="item">
-              <video id="blueshirt" autoplay controls muted loop playsinline height="100%">
-                <source src="./static/videos/redhouse-brickroof.mkv" type="video/mp4" />
-              </video>
-            </div>
-            <div class="item">
-              <video id="mask" autoplay controls muted loop playsinline height="100%">
-                <source src="./static/videos/skull.mkv" type="video/mp4" />
-              </video>
-            </div>
-            <div class="item">
-              <video id="coffee" autoplay controls muted loop playsinline height="100%">
-                <source src="./static/videos/owl.mkv" type="video/mp4" />
-              </video>
-            </div>
-            <div class="item">
-              <video id="toby" autoplay controls muted loop playsinline height="100%">
-                <source src="./static/videos/redhouse.mkv" type="video/mp4" />
-              </video>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <section class="section">
       <div class="container is-max-desktop">
         <div class="columns is-centered has-text-centered">
@@ -187,31 +138,78 @@
     </section>
 
     <section class="section">
-      <div class="container is-max-desktop">
-        <div class="columns is-centered">
-          <div class="column">
-            <div class="content">
-              <h2 class="title is-3">Title</h2>
-              <p>To be filled</p>
-              <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
-                <source src="./static/videos/skull.mkv" type="video/mp4" />
-              </video>
-            </div>
-          </div>
+      <div class="container">
+        <h2 class="title is-3 has-text-centered">Results</h2>
 
+        <!-- Results Row -->
+        <div class="columns is-vcentered">
+          <!-- Skull Ground Truth and Carousel -->
+          <div class="column has-text-centered">
+            <video autoplay muted loop playsinline height="50%">
+              <source src="./static/videos/skull.mkv" type="video/mp4" />
+            </video>
+            <p>Ground Truth (Skull)</p>
+          </div>
           <div class="column">
-            <h2 class="title is-3">Title</h2>
-            <div class="columns is-centered">
-              <div class="column content">
-                <p>To be filled.</p>
-                <video id="matting-video" controls playsinline height="100%">
-                  <source src="./static/videos/skull.mkv" type="video/mp4" />
-                </video>
+            <section class="hero is-light is-small">
+              <div class="hero-body">
+                <div class="container">
+                  <div id="skull-carousel" class="carousel results-carousel">
+                    <div class="item has-text-centered">
+                      <video autoplay muted loop playsinline height="50%">
+                        <source src="./static/videos/skull_batman.mkv" type="video/mp4" />
+                      </video>
+                      <p>"Turn it into Batman"</p>
+                    </div>
+                    <div class="item has-text-centered">
+                      <video autoplay muted loop playsinline height="50%">
+                        <source src="./static/videos/skull_einstein.mkv" type="video/mp4" />
+                      </video>
+                      <p>"Turn it into Einstein"</p>
+                    </div>
+                  </div>
+                </div>
               </div>
-            </div>
+            </section>
           </div>
         </div>
 
+        <div class="columns is-vcentered">
+          <!-- Owl Ground Truth and Carousel -->
+          <div class="column has-text-centered">
+            <video autoplay muted loop playsinline height="50%">
+              <source src="./static/videos/owl.mkv" type="video/mp4" />
+            </video>
+            <p>Ground Truth (Owl)</p>
+          </div>
+          <div class="column">
+            <section class="hero is-light is-small">
+              <div class="hero-body">
+                <div class="container">
+                  <div id="owl-carousel" class="carousel results-carousel">
+                    <div class="item has-text-centered">
+                      <video autoplay muted loop playsinline height="50%">
+                        <source src="./static/videos/owl-drawer.mkv" type="video/mp4" />
+                      </video>
+                      <p>"Turn stand into drawer"</p>
+                    </div>
+                    <div class="item has-text-centered">
+                      <video autoplay muted loop playsinline height="50%">
+                        <source src="./static/videos/owl-monkey.mkv" type="video/mp4" />
+                      </video>
+                      <p>"Turn owl into monkey"</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container is-max-desktop">
         <h3 class="title is-4">View consistency</h3>
         <div class="content has-text-justified">
           <p>View consistency</p>
@@ -221,13 +219,15 @@
             <source src="./static/videos/constency-monkey-changed.mp4" type="video/mp4" />
           </video>
         </div>
+      </div>
+    </section>
 
-        <div class="columns is-centered">
-          <div class="column is-half">
-            <h2 class="title is-3">Related Links</h2>
-            <div class="content has-text-justified">
-              <p>To be filled</p>
-            </div>
+    <section class="section">
+      <div class="columns is-centered">
+        <div class="column is-half">
+          <h2 class="title is-3">Related Links</h2>
+          <div class="content has-text-justified">
+            <p>To be filled</p>
           </div>
         </div>
       </div>
