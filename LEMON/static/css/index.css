@@ -150,3 +150,10 @@ body {
 #interpolation-image-wrapper img {
   border-radius: 5px;
 }
+
+.dotted-line {
+  border-left: 3px dotted #aaa;
+  height: 420px;  /* Adjust this value as needed */
+  width: 3px;
+  margin: auto;
+}
