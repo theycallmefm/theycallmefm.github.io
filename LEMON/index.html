@@ -65,7 +65,7 @@
                     </a>
                   </span>
                   <span class="link-block">
-                    <a href="https://www.youtube.com/watch?v=jjoMEw2RYlA" class="external-link button is-normal is-rounded is-dark">
+                    <a href="https://youtu.be/57qwP_-3C4Y" class="external-link button is-normal is-rounded is-dark">
                       <span class="icon">
                         <i class="fab fa-youtube"></i>
                       </span>
@@ -126,7 +126,7 @@
             <h2 class="title is-3">Video</h2>
             <div class="publication-video">
               <iframe
-                src="https://www.youtube.com/embed/jjoMEw2RYlA?start=4&rel=0&showinfo=0"
+                src="https://www.youtube.com/embed/57qwP_-3C4Y?rel=0&showinfo=0"
                 frameborder="0"
                 allow="autoplay; encrypted-media"
                 allowfullscreen
@@ -140,79 +140,79 @@
     <section class="section">
       <div class="container">
         <h2 class="title is-3 has-text-centered">Results</h2>
-
-        <!-- Results Row -->
+    
+        <!-- First Row -->
         <div class="columns is-vcentered">
-          <!-- Skull Ground Truth and Carousel -->
+          <!-- First Column: Skull GT -->
           <div class="column has-text-centered">
             <video autoplay muted loop playsinline height="50%">
-              <source src="./static/videos/skull.mkv" type="video/mp4" />
+              <source src="./static/videos/skull.mp4" type="video/mp4" />
             </video>
-            <p>Ground Truth (Skull)</p>
+            <p><strong>Ground Truth (Skull)</strong></p>
           </div>
-          <div class="column">
-            <section class="hero is-light is-small">
-              <div class="hero-body">
-                <div class="container">
-                  <div id="skull-carousel" class="carousel results-carousel">
-                    <div class="item has-text-centered">
-                      <video autoplay muted loop playsinline height="50%">
-                        <source src="./static/videos/skull_batman.mkv" type="video/mp4" />
-                      </video>
-                      <p>"Turn it into Batman"</p>
-                    </div>
-                    <div class="item has-text-centered">
-                      <video autoplay muted loop playsinline height="50%">
-                        <source src="./static/videos/skull_einstein.mkv" type="video/mp4" />
-                      </video>
-                      <p>"Turn it into Einstein"</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </section>
+    
+          <!-- Dotted Line -->
+          <div class="column is-narrow">
+            <div class="dotted-line"></div>
+          </div>
+    
+          <!-- Second Column: Batman -->
+          <div class="column has-text-centered">
+            <video autoplay muted loop playsinline height="50%">
+              <source src="./static/videos/skull_batman_2.mp4" type="video/mp4" />
+            </video>
+            <p><i>"Turn it into Batman"</i></p>
+          </div>
+    
+          <!-- Third Column: Einstein -->
+          <div class="column has-text-centered">
+            <video autoplay muted loop playsinline height="50%">
+              <source src="./static/videos/skull_einstein_1.mp4" type="video/mp4" />
+            </video>
+            <p><i>"Turn it into Einstein"</i></p>
           </div>
         </div>
-
+    
+        <!-- Second Row -->
         <div class="columns is-vcentered">
-          <!-- Owl Ground Truth and Carousel -->
+          <!-- First Column: Owl GT -->
           <div class="column has-text-centered">
             <video autoplay muted loop playsinline height="50%">
-              <source src="./static/videos/owl.mkv" type="video/mp4" />
+              <source src="./static/videos/owl.mp4" type="video/mp4" />
             </video>
-            <p>Ground Truth (Owl)</p>
+            <p><strong>Ground Truth (Owl)</strong></p>
           </div>
-          <div class="column">
-            <section class="hero is-light is-small">
-              <div class="hero-body">
-                <div class="container">
-                  <div id="owl-carousel" class="carousel results-carousel">
-                    <div class="item has-text-centered">
-                      <video autoplay muted loop playsinline height="50%">
-                        <source src="./static/videos/owl-drawer.mkv" type="video/mp4" />
-                      </video>
-                      <p>"Turn stand into drawer"</p>
-                    </div>
-                    <div class="item has-text-centered">
-                      <video autoplay muted loop playsinline height="50%">
-                        <source src="./static/videos/owl-monkey.mkv" type="video/mp4" />
-                      </video>
-                      <p>"Turn owl into monkey"</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </section>
+    
+          <!-- Dotted Line -->
+          <div class="column is-narrow">
+            <div class="dotted-line"></div>
+          </div>
+    
+          <!-- Second Column: Drawer -->
+          <div class="column has-text-centered">
+            <video autoplay muted loop playsinline height="50%">
+              <source src="./static/videos/owl_drawer.mp4" type="video/mp4" />
+            </video>
+            <p><i>"Turn stand into drawer</i>"</p>
+          </div>
+    
+          <!-- Third Column: Monkey -->
+          <div class="column has-text-centered">
+            <video autoplay muted loop playsinline height="50%">
+              <source src="./static/videos/owl_monkey.mp4" type="video/mp4" />
+            </video>
+            <p><i>"Turn owl into monkey"</i></p>
           </div>
         </div>
       </div>
     </section>
-
+    
+    
+    
     <section class="section">
       <div class="container is-max-desktop">
-        <h3 class="title is-4">View consistency</h3>
+        <h3 class="title is-3 has-text-centered">View Consistency</h3>
         <div class="content has-text-justified">
-          <p>View consistency</p>
         </div>
         <div class="content has-text-centered">
           <video id="replay-video" controls muted preload playsinline width="75%">
@@ -227,7 +227,16 @@
         <div class="column is-half">
           <h2 class="title is-3">Related Links</h2>
           <div class="content has-text-justified">
-            <p>To be filled</p>
+            <p>
+              <a href="https://fraunhoferhhi.github.io/neural-deferred-shading/" target="_blank" rel="noopener noreferrer">
+                Neural Deferred Shading
+              </a> for mesh reconstruction
+            </p>
+            <p>
+              <a href="https://github.com/lllyasviel/ControlNet" target="_blank" rel="noopener noreferrer">
+                ControlNet
+              </a> for editing multi-view images
+            </p>
           </div>
         </div>
       </div>
@@ -249,10 +258,7 @@
     <footer class="footer">
       <div class="container">
         <div class="content has-text-centered">
-          <a class="icon-link" href="./static/videos/submission.pdf">
-            <i class="fas fa-file-pdf"></i>
-          </a>
-          <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
+          <a class="icon-link" href="https://github.com/theycallmefm/LEMON" class="external-link" disabled>
             <i class="fab fa-github"></i>
           </a>
         </div>
@@ -260,15 +266,7 @@
           <div class="column is-8">
             <div class="content">
               <p>
-                This website is licensed under a
-                <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"
-                  >Creative Commons Attribution-ShareAlike 4.0 International License</a
-                >.
-              </p>
-              <p>
-                This means you are free to borrow the <a href="https://github.com/nerfies/nerfies.github.io">source code</a> of this website, we just
-                ask that you link back to this page in the footer. Please remember to remove the analytics code included in the header of the website
-                which you do not want on your website.
+                This website template is borrowed from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>
               </p>
             </div>
           </div>
