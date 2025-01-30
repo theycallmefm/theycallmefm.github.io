@@ -14,7 +14,7 @@ This project is a real-time 3D reconstruction framework that replaces an object-
 
 <div class="row justify-content-center">
     <div class="col-md-10 col-sm-12 mt-3 mt-md-0 text-center">
-        {% include figure.liquid loading="eager" path="assets/img/scan2cad_input.jpg" title="input image" class="img-fluid rounded z-depth-1" style="width: 100%; max-width: 800px;" %}
+        {% include figure.liquid loading="eager" path="assets/img/scan2cad_input.png" title="input image" class="img-fluid rounded z-depth-1" style="width: 100%; max-width: 800px;" %}
     </div>
 </div>
 <div class="caption text-center">
