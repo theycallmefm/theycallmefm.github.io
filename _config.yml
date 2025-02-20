@@ -47,10 +47,12 @@ rss_icon: false
 # Layout
 # -----------------------------------------------------------------------------
 
-navbar_fixed: true
+navbar_fixed: false
 footer_fixed: true
-search_enabled: true
-socials_in_search: true
+search_enabled: false
+socials_in_search: false
+
+cv_pdf: Furkan_Mert_Algan_CV.pdf
 
 # Dimensions
 max_width: 930px
