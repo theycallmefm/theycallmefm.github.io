@@ -23,6 +23,6 @@ I have completed my Master's degree in Informatics at Technical University of Mu
 
 My research lies at the intersection of computer vision, computer graphics, and machine learning, with a particular focus on 3D vision and its applications. I have experience in 3D reconstruction, scene understanding, and motion capture. I am currently working on mesh editing and reconstruction.
 
-Outside of research, I have a deep interest in cinema, gaming, and music — from arthouse to mainstream. You can find me on [Letterboxd](https://letterboxd.com/theycallmefm/) and [Backloggd](https://backloggd.com/u/theycallmefm/) as well(though I occasionally forget to log my activities). I also enjoy video editing for fun.
+Outside of research, I have a deep interest in cinema, gaming, and music — from arthouse to mainstream. You can find me on [Letterboxd](https://letterboxd.com/theycallmefm/) and [Backloggd](https://backloggd.com/u/theycallmefm/) as well(though I occasionally forget to log my activities). [I also enjoy video editing for fun!](https://www.youtube.com/watch?v=_PI7eY3pji0)
 
 Feel free to reach out via email if you'd like to connect!
