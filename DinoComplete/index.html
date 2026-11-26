@@ -1,0 +1,452 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="DinoComplete combines distilled DINO semantic priors and Multi-Scale Voxel Mamba for efficient 3D shape completion from partial TSDF scans. NeurIPS 2026."
+    />
+    <meta name="keywords" content="DinoComplete, 3D shape completion, TSDF, DINO, semantic distillation, Mamba, NeurIPS 2026" />
+    <meta name="theme-color" content="#ffffff" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="DinoComplete: 3D Shape Completion with Distilled Semantic Priors and State Space Models" />
+    <meta
+      property="og:description"
+      content="Complete 3D shapes from partial geometry with distilled semantic priors and efficient voxel state space modeling."
+    />
+    <meta property="og:url" content="https://theycallmefm.github.io/DinoComplete/" />
+    <meta property="og:image" content="https://theycallmefm.github.io/DinoComplete/static/images/social-preview.jpg" />
+    <meta property="og:image:alt" content="Partial scans and the complete 3D shapes reconstructed by DinoComplete." />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="DinoComplete | NeurIPS 2026" />
+    <meta name="twitter:description" content="3D Shape Completion with Distilled Semantic Priors and State Space Models" />
+    <meta name="twitter:image" content="https://theycallmefm.github.io/DinoComplete/static/images/social-preview.jpg" />
+    <title>DinoComplete: 3D Shape Completion with Distilled Semantic Priors and State Space Models</title>
+    <link rel="canonical" href="https://theycallmefm.github.io/DinoComplete/" />
+    <link rel="icon" href="./static/images/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="./static/css/index.css" />
+    <script defer src="./static/js/index.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="publication-header">
+      <div class="container">
+        <h1 class="publication-title">
+          <span class="project-name">DinoComplete</span>: 3D Shape Completion with Distilled Semantic Priors and State Space Models
+        </h1>
+        <p class="publication-venue">NeurIPS 2026</p>
+        <div class="publication-authors">
+          <a href="https://theycallmefm.github.io/">Furkan Mert Algan</a><span class="author-separator" aria-hidden="true">,</span>
+          <a href="https://www.ce.cit.tum.de/en/lmt/team/staff/steinbach-eckehard/">Eckehard Steinbach</a>
+        </div>
+        <p class="publication-affiliation">Technical University of Munich</p>
+
+        <nav class="publication-links" aria-label="Publication resources">
+          <a class="resource-button" href="https://arxiv.org/abs/2605.26949">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z" />
+              <path d="M14 2v6h6M8 13h8M8 17h6" />
+            </svg>
+            Paper
+          </a>
+          <a class="resource-button" href="#video">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+              <rect x="2" y="5" width="20" height="14" rx="4" />
+              <path d="m10 9 5 3-5 3Z" fill="currentColor" stroke="none" />
+            </svg>
+            Video
+          </a>
+          <a class="resource-button" href="https://github.com/theycallmefm/DinoComplete">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path
+                d="M12 .8a11.2 11.2 0 0 0-3.54 21.82c.56.1.76-.24.76-.54v-2.1c-3.12.68-3.78-1.32-3.78-1.32-.51-1.3-1.25-1.65-1.25-1.65-1.02-.7.08-.68.08-.68 1.12.08 1.72 1.15 1.72 1.15 1 1.71 2.62 1.22 3.26.93.1-.72.39-1.22.71-1.5-2.49-.28-5.11-1.25-5.11-5.54 0-1.22.44-2.22 1.15-3-.12-.28-.5-1.42.11-2.96 0 0 .94-.3 3.08 1.15a10.7 10.7 0 0 1 5.61 0c2.14-1.45 3.08-1.15 3.08-1.15.61 1.54.23 2.68.11 2.96.72.78 1.15 1.78 1.15 3 0 4.3-2.63 5.25-5.13 5.53.4.35.76 1.03.76 2.08v3.1c0 .3.2.65.77.54A11.2 11.2 0 0 0 12 .8Z"
+              />
+            </svg>
+            Code
+          </a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="teaser container reading-width" id="video" aria-label="DinoComplete video presentation">
+        <video
+          class="presentation-video"
+          controls
+          playsinline
+          preload="none"
+          poster="./static/images/video-poster.jpg"
+          aria-label="DinoComplete video presentation"
+        >
+          <source src="./static/videos/dinocomplete.mp4" type="video/mp4" />
+          <source src="./static/videos/dinocomplete.webm" type="video/webm" />
+          Your browser does not support embedded video. <a href="./static/videos/dinocomplete.mp4">Download the video</a>.
+        </video>
+        <p class="teaser-caption">
+          TLDR: <strong>Complete shapes from partial geometry.</strong> Distilled DINO semantics and multi-scale state space modeling reconstruct
+          missing structure, using <strong>only a partial TSDF at inference</strong>.
+        </p>
+        <p class="media-note"><a href="./static/videos/dinocomplete.mp4">Download video</a> <span aria-hidden="true">&middot;</span> 1 min 49 sec</p>
+      </section>
+
+      <section class="section section-tinted" id="abstract" aria-labelledby="abstract-title">
+        <div class="container reading-width">
+          <h2 id="abstract-title">Abstract</h2>
+          <p>
+            3D shape completion from partial scans remains challenging for unseen categories and noisy real-world observations, where geometry alone
+            is often insufficient for inferring missing structure. We present DinoComplete, a deterministic and efficient shape completion framework
+            that augments geometric reconstruction with voxel-aligned semantic priors distilled from DINO features. First, we construct multi-view
+            DINO feature volumes aligned with ShapeNet data and train a student network to predict dense semantic features directly from incomplete
+            shapes. These predicted features capture global structure and part-aware semantic context while remaining aligned with the underlying
+            geometry. We then integrate these distilled features into a completion network, where geometric and semantic voxel representations are
+            fused through voxel state-space modeling. To enable efficient long-range reasoning without sacrificing resolution, we introduce a
+            Multi-Scale Voxel Mamba module that refines the fused features by combining full-grid and chunk-wise sequence modeling. Experiments on
+            unseen ShapeNet categories and ScanNet objects show that DinoComplete achieves competitive completion quality relative to prior
+            deterministic and generative completion methods while using fewer parameters, requiring lower memory, and achieving faster inference. Our
+            results demonstrate that distilling semantic priors from visual foundation models improves generalization and robustness in 3D shape
+            completion.
+          </p>
+        </div>
+      </section>
+
+      <section class="section section-tinted" id="method" aria-labelledby="method-title">
+        <div class="container">
+          <h2 id="method-title">Method Overview</h2>
+          <p class="section-intro">
+            A geometric branch and a distilled semantic branch encode the same partial scan. Voxel state space operators fuse their features, and
+            Multi-Scale Voxel Mamba refines the decoded volume into a complete shape.
+          </p>
+          <figure class="paper-figure architecture-figure">
+            <a
+              href="./static/figures/architecture.pdf"
+              target="_blank"
+              rel="noopener"
+              aria-label="Open the shape completion architecture as a full-resolution PDF (new tab)"
+            >
+              <img
+                src="./static/images/architecture.webp"
+                width="1800"
+                height="907"
+                loading="lazy"
+                decoding="async"
+                alt="A partial TSDF enters parallel TSDF and DINO encoders. Their voxel state space features are fused and passed through a decoder and Multi-Scale Voxel Mamba to predict the completed TSDF."
+              />
+            </a>
+            <figcaption>
+              Shape completion architecture. Both branches receive geometry; RGB images and the DINOv3 teacher are used only for distillation.
+            </figcaption>
+          </figure>
+
+          <div class="method-columns">
+            <article>
+              <h3>Distill Semantics into 3D</h3>
+              <p>
+                We fuse DINOv3 features from 20 rendered RGB-D views into a voxel-aligned teacher volume. A 3D student learns to predict the observed
+                semantic features directly from a partial TSDF, transferring visual priors into a geometry-only model.
+              </p>
+              <figure class="paper-figure">
+                <a
+                  href="./static/figures/distillation.pdf"
+                  target="_blank"
+                  rel="noopener"
+                  aria-label="Open the TSDF-DINO distillation pipeline as a full-resolution PDF (new tab)"
+                >
+                  <img
+                    src="./static/images/distillation.webp"
+                    width="1800"
+                    height="907"
+                    loading="lazy"
+                    decoding="async"
+                    alt="Multi-view DINO features are fused into a 3D chair feature volume. A student encoder and decoder learn matching features from the corresponding partial TSDF."
+                  />
+                </a>
+                <figcaption>Multi-view feature fusion and TSDF-to-DINO distillation.</figcaption>
+              </figure>
+            </article>
+            <article>
+              <h3>Reason Across Multiple Scales</h3>
+              <p>
+                Multi-Scale Voxel Mamba combines a full voxel sequence with shorter chunk-wise sequences. Hilbert-curve serialization preserves
+                spatial locality, while residual aggregation combines local detail with long-range context.
+              </p>
+              <figure class="paper-figure">
+                <a
+                  href="./static/figures/multi-scale-mamba.pdf"
+                  target="_blank"
+                  rel="noopener"
+                  aria-label="Open the Multi-Scale Voxel Mamba diagram as a full-resolution PDF (new tab)"
+                >
+                  <img
+                    src="./static/images/multi-scale-mamba.webp"
+                    width="1800"
+                    height="1127"
+                    loading="lazy"
+                    decoding="async"
+                    alt="Multi-Scale Voxel Mamba aggregates three state space branches: the full voxel grid and two chunked grids, each ordered with a Hilbert curve."
+                  />
+                </a>
+                <figcaption>Full-grid and chunk-wise state space modeling.</figcaption>
+              </figure>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="semantic-features" aria-labelledby="semantics-title">
+        <div class="container">
+          <h2 id="semantics-title">Semantic Structure from Incomplete Scans</h2>
+          <p class="section-intro">
+            The TSDF-DINO student predicts features on unseen categories that resemble the teacher features. PCA visualizations reveal similar feature
+            patterns on semantically related parts, even across different object categories.
+          </p>
+          <figure class="paper-figure semantic-figure">
+            <a
+              href="./static/figures/semantic-features.pdf"
+              target="_blank"
+              rel="noopener"
+              aria-label="Open the semantic feature comparisons as a full-resolution PDF (new tab)"
+            >
+              <img
+                src="./static/images/semantic-features.webp"
+                width="1800"
+                height="726"
+                loading="lazy"
+                decoding="async"
+                alt="Left: input TSDFs, ground-truth DINO features, and predicted features for a lamp and a bed. Right: related feature colors on a garbage bin and bag, and on two bathtubs."
+              />
+            </a>
+            <figcaption>
+              Colors represent PCA projections of semantic features. The paired teacher and student outputs share a PCA embedding; the related-object
+              groups use separate shared embeddings.
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="section section-tinted" id="results" aria-labelledby="results-title">
+        <div class="container">
+          <h2 id="results-title">Shape Completion Results</h2>
+          <p class="section-intro">
+            DinoComplete preserves observed structure while filling in missing regions on categories not seen during training. Synthetic ShapeNet
+            objects are shown in blue and real ScanNet objects in yellow.
+          </p>
+          <figure class="paper-figure">
+            <a
+              href="./static/figures/unseen-results.pdf"
+              target="_blank"
+              rel="noopener"
+              aria-label="Open the unseen-category comparison as a full-resolution PDF (new tab)"
+            >
+              <img
+                src="./static/images/unseen-results.webp"
+                width="1800"
+                height="1166"
+                loading="lazy"
+                decoding="async"
+                alt="Seven unseen-category examples compare the partial input, PatchComplete, DiffComplete, DinoComplete, and ground truth, including a bag, bed, lamp, laptop, and real-world baskets."
+              />
+            </a>
+            <figcaption>Qualitative comparisons on unseen categories.</figcaption>
+          </figure>
+
+          <details class="additional-results">
+            <summary>More Results on Unseen Categories</summary>
+            <figure class="paper-figure">
+              <a
+                href="./static/figures/additional-results.pdf"
+                target="_blank"
+                rel="noopener"
+                aria-label="Open additional unseen-category comparisons as a full-resolution PDF (new tab)"
+              >
+                <img
+                  src="./static/images/additional-results.webp"
+                  width="1600"
+                  height="2073"
+                  loading="lazy"
+                  decoding="async"
+                  alt="Additional ShapeNet and ScanNet examples with the same input, PatchComplete, DiffComplete, DinoComplete, and ground-truth row order."
+                />
+              </a>
+              <figcaption>Additional synthetic and real-world examples from the supplementary material.</figcaption>
+            </figure>
+          </details>
+          <details class="additional-results">
+            <summary>Results on Seen ShapeNet Categories</summary>
+            <figure class="paper-figure">
+              <a
+                href="./static/figures/seen-results.pdf"
+                target="_blank"
+                rel="noopener"
+                aria-label="Open the seen-category comparisons as a full-resolution PDF (new tab)"
+              >
+                <img
+                  src="./static/images/seen-results.webp"
+                  width="1800"
+                  height="1166"
+                  loading="lazy"
+                  decoding="async"
+                  alt="Seen-category ShapeNet completions for objects including a chair, guitar, table, refrigerator, and sofa, compared with PatchComplete, DiffComplete, and ground truth."
+                />
+              </a>
+              <figcaption>Qualitative comparisons on seen ShapeNet categories, shown in green.</figcaption>
+            </figure>
+          </details>
+        </div>
+      </section>
+
+      <section class="section" id="quantitative-results" aria-labelledby="quantitative-title">
+        <div class="container">
+          <h2 id="quantitative-title">Quality and Efficiency</h2>
+          <p class="section-intro">
+            DinoComplete achieves the best average Chamfer Distance and IoU among the compared methods on unseen ShapeNet categories, with competitive
+            performance on real ScanNet objects.
+          </p>
+          <div class="table-scroll" role="region" aria-label="Completion quality comparison; scroll horizontally on small screens" tabindex="0">
+            <table>
+              <caption>
+                Average Completion Quality on Unseen Categories
+              </caption>
+              <thead>
+                <tr>
+                  <th scope="col" rowspan="2">Method</th>
+                  <th scope="colgroup" colspan="2">ShapeNet</th>
+                  <th scope="colgroup" colspan="2">ScanNet</th>
+                </tr>
+                <tr>
+                  <th scope="col">CD <span aria-label="lower is better">↓</span></th>
+                  <th scope="col">IoU (%) <span aria-label="higher is better">↑</span></th>
+                  <th scope="col">CD <span aria-label="lower is better">↓</span></th>
+                  <th scope="col">IoU (%) <span aria-label="higher is better">↑</span></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">PatchComplete</th>
+                  <td>4.27</td>
+                  <td>65.4</td>
+                  <td>7.52</td>
+                  <td>49.5</td>
+                </tr>
+                <tr>
+                  <th scope="row">DiffComplete</th>
+                  <td>4.10</td>
+                  <td>67.5</td>
+                  <td>7.18</td>
+                  <td>51.3</td>
+                </tr>
+                <tr>
+                  <th scope="row">SC-Diff</th>
+                  <td>4.08</td>
+                  <td>68.2</td>
+                  <td>7.04</td>
+                  <td>51.9</td>
+                </tr>
+                <tr>
+                  <th scope="row">BridgeShape</th>
+                  <td>4.06</td>
+                  <td>70.1</td>
+                  <td><strong>6.99</strong></td>
+                  <td><strong>53.5</strong></td>
+                </tr>
+                <tr class="our-method">
+                  <th scope="row">DinoComplete (Ours)</th>
+                  <td><strong>3.64</strong></td>
+                  <td><strong>71.1</strong></td>
+                  <td>7.09</td>
+                  <td>53.0</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="table-note">
+            CD: Chamfer Distance (lower is better). IoU: Intersection over Union (higher is better). All objects use 32³ TSDF volumes.
+          </p>
+
+          <div
+            class="table-scroll efficiency-table"
+            role="region"
+            aria-label="Model efficiency comparison; scroll horizontally on small screens"
+            tabindex="0"
+          >
+            <table>
+              <caption>
+                Model Efficiency
+              </caption>
+              <thead>
+                <tr>
+                  <th scope="col">Method</th>
+                  <th scope="col">Parameters (M)</th>
+                  <th scope="col">Memory (GB)</th>
+                  <th scope="col">Inference (ms)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">PatchComplete</th>
+                  <td>182.85</td>
+                  <td>1.259</td>
+                  <td>65.56</td>
+                </tr>
+                <tr>
+                  <th scope="row">DiffComplete</th>
+                  <td>43.09</td>
+                  <td>0.302</td>
+                  <td>3115.85</td>
+                </tr>
+                <tr class="our-method">
+                  <th scope="row">DinoComplete (Ours)</th>
+                  <td><strong>25.97</strong></td>
+                  <td><strong>0.292</strong></td>
+                  <td><strong>28.68</strong></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="table-note">Single-sample inference measurements reported in the paper. Lower is better for all efficiency metrics.</p>
+        </div>
+      </section>
+
+      <section class="section section-tinted" id="bibtex" aria-labelledby="bibtex-title">
+        <div class="container reading-width">
+          <div class="citation-heading">
+            <h2 id="bibtex-title">BibTeX</h2>
+            <button class="copy-button" id="copy-bibtex" type="button" hidden>Copy BibTeX</button>
+          </div>
+          <pre class="citation"><code id="bibtex-code">@inproceedings{algan2026dinocomplete,
+  title     = {DinoComplete: 3D Shape Completion with Distilled
+               Semantic Priors and State Space Models},
+  author    = {Algan, Furkan Mert and Steinbach, Eckehard},
+  booktitle = {Advances in Neural Information Processing Systems (NeurIPS)},
+  year      = {2026},
+  url       = {https://arxiv.org/abs/2605.26949}
+}</code></pre>
+          <p class="media-note"><a href="./static/dinocomplete.bib" download>Download citation</a></p>
+          <span class="sr-only" id="copy-status" role="status" aria-live="polite"></span>
+        </div>
+      </section>
+
+      <section class="section acknowledgements" aria-labelledby="acknowledgements-title">
+        <div class="container reading-width">
+          <h2 id="acknowledgements-title">Acknowledgements</h2>
+          <p>
+            This work was supported by the German Federal Ministry of Research, Technology and Space (BMFTR) through the Robotics Institute Germany
+            (RIG) and by the Bavarian Ministry of Economic Affairs, Regional Development and Energy as part of the project “6G Future Lab Bavaria”.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <p>
+          <a href="https://theycallmefm.github.io/">Furkan Mert Algan</a>
+          <span aria-hidden="true">&middot;</span>
+          <a href="https://github.com/theycallmefm/DinoComplete">DinoComplete on GitHub</a>
+        </p>
+        <p>This website follows the <a href="https://nerfies.github.io/">Nerfies</a> academic project template.</p>
+      </div>
+    </footer>
+  </body>
+</html>
