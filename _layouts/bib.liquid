@@ -184,6 +184,20 @@
 
     <!-- Links/Buttons -->
     <div class="links">
+      {% if entry.website %}
+        <a href="{{ entry.website }}" class="btn btn-sm z-depth-0" role="button">Website</a>
+      {% endif %}
+      {% if entry.code %}
+        <a href="{{ entry.code }}" class="btn btn-sm z-depth-0" role="button">Code</a>
+      {% endif %}
+      {% if entry.video and site.enable_video_embedding %}
+        <a class="abstract btn btn-sm z-depth-0" role="button">Video</a>
+      {% elsif entry.video %}
+        <a href="{{ entry.video }}" class="btn btn-sm z-depth-0" role="button">Video</a>
+      {% endif %}
+      {% if entry.paper %}
+        <a href="{{ entry.paper }}" class="btn btn-sm z-depth-0" role="button">Paper</a>
+      {% endif %}
       {% if entry.award %}
         <a class="award btn btn-sm z-depth-0" role="button">
           {%- if entry.award_name %}{{ entry.award_name }}{% else %}Awareded{% endif -%}
@@ -219,16 +233,8 @@
           <a href="{{ entry.supp | prepend: '/assets/pdf/' | relative_url }}" class="btn btn-sm z-depth-0" role="button">Supp</a>
         {% endif %}
       {% endif %}
-      {% if entry.video and site.enable_video_embedding %}
-        <a class="abstract btn btn-sm z-depth-0" role="button">Video</a>
-      {% elsif entry.video %}
-        <a href="{{ entry.video }}" class="btn btn-sm z-depth-0" role="button">Video</a>
-      {% endif %}
       {% if entry.blog %}
         <a href="{{ entry.blog }}" class="btn btn-sm z-depth-0" role="button">Blog</a>
-      {% endif %}
-      {% if entry.code %}
-        <a href="{{ entry.code }}" class="btn btn-sm z-depth-0" role="button">Code</a>
       {% endif %}
       {% if entry.poster %}
         {% if entry.poster contains '://' %}
@@ -243,12 +249,6 @@
         {% else %}
           <a href="{{ entry.slides | prepend: '/assets/pdf/' | relative_url }}" class="btn btn-sm z-depth-0" role="button">Slides</a>
         {% endif %}
-      {% endif %}
-      {% if entry.website %}
-        <a href="{{ entry.website }}" class="btn btn-sm z-depth-0" role="button">Website</a>
-      {% endif %}
-      {% if entry.paper %}
-        <a href="{{ entry.paper }}" class="btn btn-sm z-depth-0" role="button">Paper</a>
       {% endif %}
     </div>
     {% if site.enable_publication_badges %}
