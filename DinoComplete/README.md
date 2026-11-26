@@ -12,7 +12,7 @@ From the website repository root:
 python -m http.server 8000
 ```
 
-Open <http://localhost:8000/DinoComplete/>. The project page requires no JavaScript packages or build step. The parent academic website still uses its existing Jekyll build.
+Open the `/DinoComplete/` path on your local server at port `8000`. The project page requires no JavaScript packages or build step. The parent academic website still uses its existing Jekyll build.
 
 ## Content and assets
 
